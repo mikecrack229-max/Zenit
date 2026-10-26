@@ -1,0 +1,590 @@
+/* Guarda los colores, tipografías y medidas que se repiten en el diseño. */
+:root { /* Comparte estas variables con todas las páginas. */
+  --night: #0b1020; /* Define el fondo principal del sitio. */
+  --night-soft: #11182b; /* Define un tono secundario para algunas superficies. */
+  --nebula: #24213f; /* Define el violeta oscuro de la paleta. */
+  --lilac: #a99ae8; /* Define el violeta claro para acentos. */
+  --sky: #7daedb; /* Define el azul celeste para enlaces y detalles. */
+  --paper: #f0edf8; /* Define el texto claro principal. */
+  --muted: #b7b6c8; /* Define el texto secundario con buen contraste. */
+  --line: rgba(215, 211, 240, 0.16); /* Define bordes sutiles sobre fondos oscuros. */
+  --serif: "Cormorant Garamond", Georgia, serif; /* Reserva una tipografía expresiva para las frases. */
+  --sans: "Space Grotesk", Arial, sans-serif; /* Reserva una tipografía clara para controles y párrafos. */
+  color-scheme: dark; /* Pide controles nativos oscuros para combinar con el sitio. */
+} /* Termina las variables globales. */
+/* Aplica un comportamiento de desplazamiento suave sin forzarlo a quien lo desactive. */
+html { /* Ajusta el desplazamiento del documento. */
+  scroll-behavior: smooth; /* Anima los enlaces internos de forma discreta. */
+} /* Termina el ajuste del documento. */
+/* Configura la base visual y evita que los adornos creen scroll horizontal. */
+body { /* Da formato general a todas las páginas. */
+  position: relative; /* Permite colocar el fondo decorativo detrás del contenido. */
+  min-width: 320px; /* Mantiene una base usable en móviles pequeños. */
+  overflow-x: hidden; /* Evita el desbordamiento horizontal de los adornos. */
+  background: var(--night); /* Aplica el fondo azul nocturno. */
+  color: var(--paper); /* Usa texto claro para facilitar la lectura. */
+  font-family: var(--sans); /* Usa Space Grotesk para los textos generales. */
+  font-size: 0.98rem; /* Mantiene un tamaño cómodo para leer. */
+  line-height: 1.65; /* Deja aire entre las líneas de texto. */
+} /* Termina la base visual. */
+/* Dibuja estrellas suaves con gradientes, sin depender de imágenes externas. */
+body::before { /* Crea una capa de estrellas para el fondo. */
+  position: fixed; /* Mantiene el cielo quieto mientras se desplaza la página. */
+  z-index: -1; /* Coloca las estrellas detrás del contenido. */
+  inset: 0; /* Extiende la capa por toda la ventana. */
+  background-image: radial-gradient(1px 1px at 12% 18%, rgba(240, 237, 248, 0.72) 50%, transparent 100%), radial-gradient(1px 1px at 78% 27%, rgba(169, 154, 232, 0.8) 50%, transparent 100%), radial-gradient(1px 1px at 48% 68%, rgba(125, 174, 219, 0.7) 50%, transparent 100%), radial-gradient(1px 1px at 90% 82%, rgba(240, 237, 248, 0.62) 50%, transparent 100%); /* Repite pequeños puntos de luz. */
+  background-size: 280px 260px, 360px 340px, 300px 320px, 420px 360px; /* Desordena la repetición para que parezca un cielo. */
+  content: ""; /* Activa el elemento decorativo vacío. */
+  opacity: 0.55; /* Mantiene las estrellas en segundo plano. */
+  pointer-events: none; /* Deja que se pueda pulsar el contenido debajo. */
+} /* Termina el fondo de estrellas. */
+/* Mantiene los enlaces y encabezados coherentes con el tema nocturno. */
+a { /* Da el color base de los enlaces. */
+  color: var(--sky); /* Usa azul celeste para reconocer los enlaces. */
+  text-decoration: none; /* Evita subrayar enlaces decorativos por defecto. */
+} /* Termina el estilo base de enlaces. */
+a:hover { /* Resalta los enlaces cuando se usa un puntero. */
+  color: var(--lilac); /* Cambia el azul por violeta al pasar el cursor. */
+} /* Termina el estado de enlace. */
+button, input, select, textarea { /* Unifica la tipografía de controles del navegador. */
+  font: inherit; /* Hace que los controles usen Space Grotesk. */
+} /* Termina la regla de controles. */
+/* Ofrece un salto visible al navegar con teclado. */
+.skip-link { /* Oculta el enlace de salto hasta que reciba foco. */
+  position: absolute; /* Saca el enlace del flujo normal. */
+  top: 0.75rem; /* Lo coloca cerca del borde superior. */
+  left: 0.75rem; /* Lo coloca cerca del borde izquierdo. */
+  z-index: 20; /* Lo mantiene por encima de la navegación. */
+  padding: 0.65rem 1rem; /* Le da un área cómoda para pulsar. */
+  transform: translateY(-180%); /* Lo oculta mientras no se use. */
+  border-radius: 0.6rem; /* Suaviza sus esquinas. */
+  background: var(--paper); /* Contrasta el enlace con el fondo. */
+  color: var(--night); /* Asegura contraste en el texto del enlace. */
+} /* Termina el enlace de salto. */
+.skip-link:focus { /* Muestra el enlace al navegar con teclado. */
+  transform: translateY(0); /* Lo lleva a la parte visible de la página. */
+} /* Termina el estado de foco del enlace. */
+/* Distingue claramente los elementos que reciben foco de teclado. */
+:focus-visible { /* Define un contorno visible para controles y enlaces. */
+  outline: 3px solid var(--sky); /* Dibuja un borde celeste de alto contraste. */
+  outline-offset: 3px; /* Separa el borde del elemento enfocado. */
+} /* Termina el contorno de teclado. */
+/* Da al encabezado una superficie sobria y legible. */
+.site-header { /* Estiliza la franja de navegación. */
+  position: relative; /* Mantiene la navegación sobre los fondos decorativos. */
+  z-index: 5; /* Evita que la decoración tape el menú. */
+  border-bottom: 1px solid rgba(215, 211, 240, 0.08); /* Separa el menú del contenido con una línea fina. */
+  background: rgba(11, 16, 32, 0.75); /* Conserva legibilidad sin crear un bloque opaco. */
+  backdrop-filter: blur(12px); /* Suaviza lo que queda detrás de la navegación. */
+} /* Termina el encabezado. */
+.brand-mark { /* Da identidad al nombre ZENIT. */
+  color: var(--paper); /* Mantiene el nombre claro. */
+  font-size: 1.25rem; /* Da presencia al logotipo. */
+  font-weight: 700; /* Hace que la marca destaque en el menú. */
+  letter-spacing: 0.2em; /* Sugiere espacio entre las letras. */
+} /* Termina el logotipo. */
+.brand-mark span { /* Resalta la estrella junto a la marca. */
+  padding-left: 0.25rem; /* Separa la estrella del nombre. */
+  color: var(--lilac); /* Pinta la estrella de violeta. */
+  font-size: 0.8em; /* La mantiene pequeña frente al logotipo. */
+} /* Termina el detalle de marca. */
+.navbar-dark .navbar-nav .nav-link { /* Da tono y espacio a los enlaces de navegación. */
+  padding: 0.55rem 0.8rem; /* Amplía el área interactiva de cada enlace. */
+  color: var(--muted); /* Diferencia los enlaces del título de la marca. */
+  font-size: 0.88rem; /* Mantiene el menú compacto. */
+} /* Termina el estado normal de navegación. */
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active { /* Marca el enlace actual o el que se está señalando. */
+  color: var(--paper); /* Aumenta el contraste del enlace seleccionado. */
+} /* Termina el estado destacado del menú. */
+.navbar-dark .navbar-nav .nav-link-featured { /* Da más importancia a la constelación personal. */
+  color: var(--lilac); /* Separa el acceso principal con un tono violeta. */
+} /* Termina el acceso destacado. */
+.navbar-toggler { /* Hace visible el borde del botón móvil. */
+  border-color: var(--line); /* Usa un borde claro y discreto. */
+} /* Termina el botón de menú móvil. */
+/* Prepara la portada para su composición y sus adornos CSS. */
+.hero { /* Da altura y espacio a la portada principal. */
+  min-height: min(760px, calc(100vh - 76px)); /* Evita una portada excesivamente alta en ventanas pequeñas. */
+  display: flex; /* Permite organizar el texto en el espacio disponible. */
+  flex-direction: column; /* Coloca la nota de desplazamiento debajo del contenido. */
+  justify-content: center; /* Centra el contenido verticalmente. */
+  overflow: clip; /* Recorta la órbita decorativa para que no ensanche la página en móvil. */
+  padding-top: 4rem; /* Deja espacio bajo la navegación. */
+  padding-bottom: 2rem; /* Separa la portada de la siguiente sección. */
+} /* Termina la portada. */
+.min-vh-75 { /* Define una altura flexible para la fila de portada. */
+  min-height: 60vh; /* Mantiene el texto centrado sin imponer una pantalla completa. */
+} /* Termina la altura flexible. */
+.hero-copy { /* Mantiene el texto principal sobre el adorno. */
+  position: relative; /* Crea una capa para controlar la superposición. */
+  z-index: 1; /* Deja el título delante de la luna. */
+} /* Termina la capa del texto. */
+.eyebrow { /* Da un estilo pequeño a las introducciones de secciones. */
+  margin-bottom: 0.9rem; /* Separa la etiqueta del título. */
+  color: var(--sky); /* Usa un acento celeste. */
+  font-size: 0.72rem; /* Mantiene la etiqueta sutil. */
+  font-weight: 600; /* Conserva legibilidad en tamaño pequeño. */
+  letter-spacing: 0.16em; /* Sugiere una etiqueta editorial. */
+  text-transform: uppercase; /* Diferencia la etiqueta del cuerpo de texto. */
+} /* Termina las etiquetas de sección. */
+.display-title { /* Destaca los títulos grandes con la tipografía de frases. */
+  max-width: 900px; /* Limita las líneas para que sean fáciles de recorrer. */
+  margin: 0; /* Evita espacios no planeados antes del título. */
+  color: var(--paper); /* Mantiene el título claro sobre el fondo. */
+  font-family: var(--serif); /* Usa Cormorant Garamond en los títulos expresivos. */
+  font-size: clamp(3.4rem, 8vw, 7rem); /* Ajusta el tamaño entre móviles y escritorio. */
+  font-weight: 500; /* Suaviza el peso visual del título. */
+  letter-spacing: -0.035em; /* Junta ligeramente las letras grandes. */
+  line-height: 0.96; /* Mantiene el título compacto. */
+} /* Termina el título de portada. */
+.display-title em, .section-title em { /* Da énfasis a palabras seleccionadas. */
+  color: var(--lilac); /* Resalta el énfasis en violeta. */
+  font-weight: 400; /* Contrasta el énfasis sin hacerlo pesado. */
+} /* Termina el énfasis tipográfico. */
+.hero-description { /* Estiliza el texto que acompaña a la frase de portada. */
+  max-width: 610px; /* Evita párrafos demasiado anchos. */
+  margin: 1.5rem 0 1.8rem; /* Deja aire alrededor de la descripción. */
+  color: var(--muted); /* Separa visualmente la explicación del título. */
+  font-size: 1.05rem; /* Mantiene el texto cómodo de leer. */
+} /* Termina la descripción de portada. */
+.btn-zenit, .btn-zenit-quiet { /* Comparte medidas entre los botones del sitio. */
+  min-height: 48px; /* Deja un área táctil cómoda. */
+  padding: 0.75rem 1.2rem; /* Da espacio al texto de cada botón. */
+  border-radius: 999px; /* Crea una forma suave para los botones. */
+  font-size: 0.9rem; /* Mantiene los botones legibles y compactos. */
+  font-weight: 600; /* Hace que las acciones se distingan. */
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease; /* Anima los cambios sin exceso. */
+} /* Termina la base de botones. */
+.btn-zenit { /* Define el botón principal. */
+  border: 1px solid var(--lilac); /* Dibuja un borde violeta. */
+  background: var(--lilac); /* Rellena el botón principal de violeta. */
+  color: var(--night); /* Mantiene contraste en el texto del botón. */
+} /* Termina el botón principal. */
+.btn-zenit:hover { /* Resalta el botón principal con el puntero. */
+  transform: translateY(-2px); /* Levanta el botón apenas al pasar el cursor. */
+  border-color: #c3b9f1; /* Aclara el borde al interactuar. */
+  background: #c3b9f1; /* Aclara el relleno sin usar un brillo fuerte. */
+  color: var(--night); /* Mantiene el texto oscuro sobre el violeta claro. */
+} /* Termina el estado del botón principal. */
+.btn-zenit-quiet { /* Define el botón secundario. */
+  border: 1px solid var(--line); /* Enmarca el botón con un borde sutil. */
+  background: transparent; /* Deja visible el fondo espacial. */
+  color: var(--paper); /* Mantiene clara la acción secundaria. */
+} /* Termina el botón secundario. */
+.btn-zenit-quiet:hover { /* Resalta el botón secundario al interactuar. */
+  border-color: var(--sky); /* Acentúa el borde con azul celeste. */
+  background: rgba(125, 174, 219, 0.1); /* Añade un velo de color discreto. */
+  color: var(--paper); /* Mantiene el texto claro. */
+} /* Termina el estado del botón secundario. */
+.random-result { /* Reserva un espacio suave para las frases aleatorias. */
+  max-width: 610px; /* Mantiene la frase alineada con el texto de portada. */
+  margin-top: 1.3rem; /* Separa el resultado de los botones. */
+  color: var(--lilac); /* Destaca el resultado sin competir con el título. */
+  font-family: var(--serif); /* Da un tono editorial a la frase seleccionada. */
+  font-size: 1.55rem; /* Hace que el resultado se lea con facilidad. */
+  line-height: 1.25; /* Mantiene compacta la cita. */
+} /* Termina el espacio de frase aleatoria. */
+.hero-orbit { /* Dibuja una nebulosa grande en la portada. */
+  position: absolute; /* Coloca el adorno sin afectar la lectura. */
+  top: 13%; /* Sitúa la luna en el lado derecho de la portada. */
+  right: -9%; /* Deja que el halo salga parcialmente del contenedor. */
+  width: min(48vw, 570px); /* Escala la órbita con el tamaño de pantalla. */
+  aspect-ratio: 1; /* Mantiene circular el adorno. */
+  border: 1px solid rgba(169, 154, 232, 0.12); /* Sugiere un anillo fino. */
+  border-radius: 50%; /* Redondea la órbita. */
+  background: radial-gradient(circle at 54% 46%, rgba(125, 174, 219, 0.13), transparent 35%), radial-gradient(circle at 55% 52%, rgba(169, 154, 232, 0.13), transparent 57%); /* Dibuja luz difusa sin imagen. */
+  pointer-events: none; /* Evita que la ilustración bloquee los botones. */
+} /* Termina la órbita de portada. */
+.hero-moon { /* Dibuja la luna decorativa. */
+  position: absolute; /* Coloca la luna dentro de la órbita. */
+  top: 23%; /* Ajusta la luna hacia arriba. */
+  left: 23%; /* Ajusta la luna hacia el centro. */
+  width: 52%; /* Define el tamaño relativo de la luna. */
+  aspect-ratio: 1; /* Mantiene redonda la luna. */
+  border-radius: 50%; /* Redondea la luna. */
+  background: radial-gradient(circle at 35% 32%, #ece8ff, #aaa4d2 34%, #5b628f 68%, #252d50 100%); /* Da una textura suave de luz y sombra. */
+  box-shadow: 0 0 70px rgba(169, 154, 232, 0.17), inset -18px -18px 34px rgba(11, 16, 32, 0.46); /* Añade un halo tenue y una sombra lunar. */
+  opacity: 0.72; /* Mantiene el adorno detrás del mensaje. */
+} /* Termina la luna. */
+.orbit-dot { /* Dibuja un pequeño punto de luz en la órbita. */
+  position: absolute; /* Coloca el punto dentro del círculo grande. */
+  top: 18%; /* Ajusta el punto cerca de la parte superior. */
+  left: 48%; /* Alinea el punto con la órbita. */
+  width: 8px; /* Define un punto pequeño. */
+  height: 8px; /* Mantiene el punto circular. */
+  border-radius: 50%; /* Redondea el punto de luz. */
+  background: var(--paper); /* Pinta el punto de luz. */
+  box-shadow: 0 0 18px var(--lilac); /* Añade un brillo leve. */
+} /* Termina el punto de luz. */
+.constellation-art { /* Dibuja una constelación abstracta a la derecha del texto. */
+  position: relative; /* Permite ubicar estrellas y líneas internas. */
+  width: min(27vw, 320px); /* Escala la constelación en pantallas grandes. */
+  aspect-ratio: 1; /* Mantiene el dibujo cuadrado. */
+  border: 1px solid rgba(215, 211, 240, 0.15); /* Sugiere la órbita exterior. */
+  border-radius: 50%; /* Redondea el contorno. */
+} /* Termina la ilustración orbital. */
+.constellation-star { /* Estiliza las estrellas del dibujo. */
+  position: absolute; /* Sitúa cada estrella sobre la órbita. */
+  z-index: 1; /* Mantiene las estrellas delante de sus líneas. */
+  width: 10px; /* Define el tamaño de cada estrella. */
+  height: 10px; /* Mantiene la proporción cuadrada. */
+  border-radius: 50%; /* Suaviza los puntos luminosos. */
+  background: var(--paper); /* Pinta las estrellas de blanco cálido. */
+  box-shadow: 0 0 18px var(--sky); /* Añade un halo celeste discreto. */
+} /* Termina el estilo de estrellas. */
+.star-one { /* Coloca la primera estrella en la parte superior izquierda. */
+  top: 22%; /* Ajusta la estrella hacia arriba. */
+  left: 28%; /* Ajusta la estrella hacia la izquierda. */
+} /* Termina la posición de la primera estrella. */
+.star-two { /* Coloca la estrella principal en el centro. */
+  top: 54%; /* Baja la estrella principal. */
+  left: 61%; /* Desplaza la estrella principal a la derecha. */
+  width: 14px; /* Hace más grande la estrella central. */
+  height: 14px; /* Mantiene redonda la estrella central. */
+  background: var(--lilac); /* Le da un color violeta a la estrella principal. */
+} /* Termina la posición de la estrella central. */
+.star-three { /* Coloca una estrella pequeña en la parte baja. */
+  top: 72%; /* Sitúa la estrella cerca de la parte inferior. */
+  left: 34%; /* Desplaza la estrella hacia la izquierda. */
+  width: 7px; /* Define el ancho de la estrella pequeña. */
+  height: 7px; /* Define el alto de la estrella pequeña. */
+} /* Termina la posición de la estrella inferior. */
+.constellation-line { /* Traza la primera conexión celeste. */
+  position: absolute; /* Sitúa la línea sobre el círculo. */
+  top: 29%; /* Alinea la línea con las estrellas superiores. */
+  left: 31%; /* Inicia la línea junto a la estrella uno. */
+  width: 43%; /* Define el tramo entre dos estrellas. */
+  border-top: 1px solid rgba(169, 154, 232, 0.56); /* Dibuja un hilo violeta tenue. */
+  transform: rotate(38deg); /* Inclina la conexión. */
+  transform-origin: left; /* Conserva el inicio de la línea al inclinarla. */
+} /* Termina la primera conexión. */
+.line-two { /* Une la estrella inferior con la estrella central. */
+  top: 59%; /* Alinea la línea con el punto de inicio. */
+  left: 38%; /* Desplaza la línea hasta la estrella inferior. */
+  width: 32%; /* Define la longitud de la conexión. */
+  transform: rotate(-48deg); /* Inclina la conexión hacia el centro. */
+} /* Termina la segunda conexión. */
+.planet-glow { /* Añade un planeta de luz dentro de la constelación. */
+  position: absolute; /* Sitúa el resplandor bajo las líneas. */
+  top: 31%; /* Coloca el centro luminoso. */
+  left: 35%; /* Alinea el resplandor con el dibujo. */
+  width: 34%; /* Define el ancho del resplandor. */
+  aspect-ratio: 1; /* Mantiene circular la luz. */
+  border-radius: 50%; /* Redondea el resplandor. */
+  background: radial-gradient(circle, rgba(125, 174, 219, 0.2), transparent 70%); /* Difumina la luz azul. */
+} /* Termina el planeta de luz. */
+.scroll-note { /* Coloca una indicación pequeña bajo la portada. */
+  margin: auto 0 0; /* Lleva la nota al fondo de la portada. */
+  color: var(--muted); /* Mantiene la indicación secundaria. */
+  font-size: 0.72rem; /* La deja pequeña, pero legible. */
+  letter-spacing: 0.12em; /* Da una sensación editorial. */
+  text-transform: uppercase; /* Separa esta nota del contenido narrativo. */
+} /* Termina la nota de desplazamiento. */
+.scroll-note span { /* Resalta la flecha que acompaña la nota. */
+  padding-right: 0.4rem; /* Separa la flecha del texto. */
+  color: var(--lilac); /* Pinta la flecha de violeta. */
+} /* Termina el detalle de desplazamiento. */
+/* Separa las secciones para que cada grupo de frases respire. */
+.section-space { /* Da espacio vertical al contenido principal. */
+  padding-top: 5.5rem; /* Separa cada sección de la anterior. */
+  padding-bottom: 1.5rem; /* Deja aire después de cada sección. */
+} /* Termina el espaciado de sección. */
+.section-heading { /* Ajusta el encabezado antes de cada grupo de tarjetas. */
+  margin-bottom: 1.5rem; /* Separa el encabezado de su contenido. */
+} /* Termina el encabezado de sección. */
+.section-title { /* Da estilo editorial a los títulos de sección. */
+  max-width: 760px; /* Mantiene las líneas del título a una longitud cómoda. */
+  margin: 0; /* Evita espacios extra. */
+  color: var(--paper); /* Mantiene un contraste alto con el fondo. */
+  font-family: var(--serif); /* Usa la tipografía serif del proyecto. */
+  font-size: clamp(2.5rem, 5vw, 4.25rem); /* Ajusta el título a móviles y escritorio. */
+  font-weight: 500; /* Mantiene el título delicado. */
+  line-height: 1; /* Evita que un título en dos líneas ocupe demasiado. */
+} /* Termina los títulos de sección. */
+.muted-copy { /* Da un tono secundario a las explicaciones. */
+  color: var(--muted); /* Conserva legibilidad sin competir con los títulos. */
+} /* Termina el texto secundario. */
+.featured-section { /* Añade una atmósfera algo distinta a las frases destacadas. */
+  margin-top: 4rem; /* Separa la zona destacada de las categorías. */
+  padding-top: 5rem; /* Da espacio al título destacado. */
+  padding-bottom: 5rem; /* Enmarca visualmente las tarjetas. */
+  background: linear-gradient(180deg, transparent, rgba(36, 33, 63, 0.44), transparent); /* Forma una nebulosa violeta suave. */
+} /* Termina la sección destacada. */
+.text-link, .footer-link { /* Da consistencia a enlaces de apoyo. */
+  color: var(--sky); /* Usa un tono celeste para distinguir acciones. */
+  font-size: 0.87rem; /* Mantiene los enlaces secundarios discretos. */
+} /* Termina los enlaces de apoyo. */
+.text-link:hover, .footer-link:hover { color: var(--paper); } /* Aclara los enlaces al pasar el cursor. */
+/* Crea accesos a categorías distintos entre sí, no tarjetas repetidas. */
+.category-tile { /* Forma los accesos grandes del inicio. */
+  position: relative; /* Permite colocar símbolos dentro de la tarjeta. */
+  display: flex; /* Ordena los elementos de la tarjeta en vertical. */
+  min-height: 250px; /* Da espacio suficiente a cada enlace. */
+  flex-direction: column; /* Apila número, título y enlace. */
+  justify-content: space-between; /* Distribuye los elementos por la tarjeta. */
+  overflow: hidden; /* Recorta los brillos decorativos dentro de la tarjeta. */
+  padding: 1.5rem; /* Deja espacio interior cómodo. */
+  border: 1px solid var(--line); /* Define el contorno de la tarjeta. */
+  border-radius: 1rem; /* Suaviza las esquinas de los accesos. */
+  background: linear-gradient(145deg, rgba(36, 33, 63, 0.9), rgba(17, 24, 43, 0.8)); /* Une los tonos oscuros de la paleta. */
+  color: var(--paper); /* Conserva contraste para el contenido. */
+  transition: transform 180ms ease, border-color 180ms ease; /* Añade una transición breve. */
+} /* Termina la tarjeta de categoría. */
+.category-tile::after { /* Añade un brillo circular discreto en cada acceso. */
+  position: absolute; /* Coloca el brillo sin alterar los textos. */
+  right: -2rem; /* Deja que el brillo salga un poco del borde. */
+  bottom: -3rem; /* Lo acerca a la esquina inferior. */
+  width: 11rem; /* Define el tamaño del brillo. */
+  aspect-ratio: 1; /* Mantiene circular la luz. */
+  border-radius: 50%; /* Redondea la luz decorativa. */
+  background: radial-gradient(circle, rgba(169, 154, 232, 0.17), transparent 70%); /* Difumina el brillo. */
+  content: ""; /* Activa el adorno vacío. */
+} /* Termina el brillo de categoría. */
+.category-tile:hover { /* Resalta una categoría seleccionada. */
+  transform: translateY(-4px); /* Levanta la tarjeta ligeramente. */
+  border-color: rgba(169, 154, 232, 0.58); /* Resalta su borde. */
+  color: var(--paper); /* Mantiene claro el texto del enlace. */
+} /* Termina el estado interactivo de categoría. */
+.tile-love { background: linear-gradient(145deg, rgba(78, 42, 80, 0.58), rgba(17, 24, 43, 0.92)); } /* Da tonos rosados al acceso de amor. */
+.tile-pride { background: linear-gradient(145deg, rgba(37, 46, 75, 0.82), rgba(17, 24, 43, 0.94)); } /* Da tonos azules más firmes al acceso de orgullo. */
+.tile-growth { background: linear-gradient(145deg, rgba(47, 74, 81, 0.52), rgba(17, 24, 43, 0.94)); } /* Da tonos de aurora al acceso de renacer. */
+.tile-symbol { /* Destaca el símbolo de cada categoría. */
+  color: var(--lilac); /* Usa el violeta en el símbolo. */
+  font-size: 1.8rem; /* Da presencia al símbolo decorativo. */
+} /* Termina el símbolo de categoría. */
+.tile-kicker { /* Identifica cada categoría con una etiqueta pequeña. */
+  color: var(--muted); /* Mantiene la etiqueta en segundo plano. */
+  font-size: 0.7rem; /* Usa un tamaño pequeño para la etiqueta. */
+  letter-spacing: 0.13em; /* Separa las letras de la etiqueta. */
+  text-transform: uppercase; /* Diferencia la etiqueta del título. */
+} /* Termina la etiqueta de categoría. */
+.category-tile h3 { /* Da presencia al nombre de categoría. */
+  margin: 0.45rem 0; /* Separa el título de las etiquetas cercanas. */
+  font-family: var(--serif); /* Usa la tipografía de frases principales. */
+  font-size: 2.8rem; /* Hace claro el nombre de la categoría. */
+  font-weight: 500; /* Conserva un peso visual suave. */
+} /* Termina el nombre de categoría. */
+.tile-link { /* Resalta la acción de entrada. */
+  color: var(--sky); /* Distingue la acción con azul celeste. */
+  font-size: 0.8rem; /* Mantiene la acción secundaria compacta. */
+} /* Termina la acción de categoría. */
+/* Diseña las tarjetas que contienen las frases del catálogo. */
+.quote-card { /* Da una forma consistente a cada frase. */
+  position: relative; /* Permite añadir un pequeño símbolo de cita. */
+  display: flex; /* Coloca el contenido en una columna flexible. */
+  height: 100%; /* Iguala alturas dentro de cada fila. */
+  flex-direction: column; /* Ordena etiqueta, frase y acciones. */
+  padding: 1.35rem; /* Separa el contenido del borde. */
+  border: 1px solid var(--line); /* Dibuja un borde fino en la tarjeta. */
+  border-radius: 1rem; /* Redondea las esquinas. */
+  background: linear-gradient(150deg, rgba(36, 33, 63, 0.73), rgba(17, 24, 43, 0.86)); /* Evita que la tarjeta parezca un bloque plano. */
+  transition: border-color 180ms ease, transform 180ms ease; /* Hace sutil el cambio al interactuar. */
+} /* Termina la tarjeta de frase. */
+.quote-card:hover { /* Da respuesta visual a la tarjeta. */
+  transform: translateY(-2px); /* Levanta la tarjeta apenas. */
+  border-color: rgba(169, 154, 232, 0.42); /* Acentúa el borde al pasar el cursor. */
+} /* Termina el estado interactivo de la tarjeta. */
+.quote-meta { /* Ordena categoría y tema sobre la frase. */
+  display: flex; /* Coloca las etiquetas en una fila. */
+  flex-wrap: wrap; /* Permite que las etiquetas ocupen otra línea en móvil. */
+  gap: 0.4rem; /* Separa las etiquetas. */
+  color: var(--sky); /* Resalta la información de categoría. */
+  font-size: 0.67rem; /* Mantiene las etiquetas pequeñas. */
+  letter-spacing: 0.08em; /* Da aire a la metadata. */
+  text-transform: uppercase; /* Hace que parezcan etiquetas. */
+} /* Termina la metadata. */
+.quote-theme { /* Distingue el tema más específico de cada frase. */
+  color: var(--muted); /* Reduce el énfasis de la subcategoría. */
+} /* Termina el tema de frase. */
+.quote-text { /* Da prioridad visual al texto de cada frase. */
+  flex-grow: 1; /* Alinea las acciones al fondo de las tarjetas. */
+  margin: 1.15rem 0 1.35rem; /* Deja espacio entre tema, frase y acciones. */
+  color: var(--paper); /* Mantiene una lectura clara. */
+  font-family: var(--serif); /* Usa la tipografía de las frases principales. */
+  font-size: 1.7rem; /* Hace que cada frase sea el centro de la tarjeta. */
+  font-weight: 500; /* Conserva una lectura elegante. */
+  line-height: 1.13; /* Agrupa líneas de la cita sin apretarlas. */
+} /* Termina el texto de la frase. */
+.quote-author { /* Da un estilo discreto al nombre de quien propone una frase. */
+  display: block; /* Coloca el nombre en una línea propia. */
+  margin-top: 0.7rem; /* Separa el nombre del contenido de la frase. */
+  color: var(--muted); /* Mantiene la atribución en segundo plano. */
+  font-family: var(--sans); /* Usa la tipografía general para la atribución. */
+  font-size: 0.74rem; /* Evita que la atribución compita con la frase. */
+  font-style: normal; /* Evita una inclinación extra en nombres. */
+} /* Termina la atribución. */
+.quote-actions { /* Ordena los botones de acción bajo cada frase. */
+  display: flex; /* Mantiene los controles en una fila flexible. */
+  flex-wrap: wrap; /* Permite otra línea cuando falta espacio. */
+  gap: 0.4rem; /* Separa los controles entre sí. */
+  margin-top: auto; /* Alinea las acciones en la parte baja. */
+} /* Termina el grupo de acciones. */
+.quote-action { /* Mantiene los botones compactos y visibles. */
+  padding: 0.38rem 0.62rem; /* Deja un área táctil suficiente sin ocupar toda la tarjeta. */
+  border: 1px solid var(--line); /* Delimita cada acción. */
+  border-radius: 999px; /* Suaviza la forma de los botones. */
+  background: transparent; /* Mantiene el fondo oscuro de la tarjeta. */
+  color: var(--muted); /* Presenta los botones como acciones secundarias. */
+  font-size: 0.7rem; /* Evita que los controles resten protagonismo a la frase. */
+} /* Termina el botón de acción. */
+.quote-action:hover, .quote-action.is-favorite { /* Marca una acción activa o señalada. */
+  border-color: var(--lilac); /* Resalta el borde con violeta. */
+  color: var(--lilac); /* Resalta también el texto del botón. */
+} /* Termina el estado activo de acción. */
+.empty-state { /* Presenta con claridad una lista sin resultados. */
+  grid-column: 1 / -1; /* Ocupa todas las columnas disponibles. */
+  padding: 1.5rem; /* Da espacio al mensaje vacío. */
+  border: 1px dashed var(--line); /* Sugiere que el espacio puede llenarse. */
+  border-radius: 0.9rem; /* Suaviza el contorno. */
+  color: var(--muted); /* Mantiene el mensaje secundario pero legible. */
+  text-align: center; /* Centra el mensaje en su espacio. */
+} /* Termina el mensaje de lista vacía. */
+/* Define el estilo de las páginas de categoría y del buscador personal. */
+.category-hero { /* Da margen superior a las cabeceras internas. */
+  position: relative; /* Permite colocar adornos sin desplazar el contenido. */
+  padding-top: clamp(5rem, 12vh, 8rem); /* Deja espacio generoso bajo la navegación. */
+  padding-bottom: 2.5rem; /* Separa la cabecera de las frases. */
+} /* Termina la cabecera de categoría. */
+.category-hero .display-title { /* Adapta los títulos internos al ancho disponible. */
+  max-width: 880px; /* Evita que el título se vuelva demasiado ancho. */
+  font-size: clamp(3.2rem, 7vw, 6.4rem); /* Ajusta el tamaño al ancho de pantalla. */
+} /* Termina el ajuste de títulos internos. */
+.category-hero .hero-description { /* Conserva líneas cómodas en las introducciones. */
+  max-width: 650px; /* Limita la longitud de la introducción. */
+} /* Termina el ajuste de introducciones. */
+.category-hero-love::after, .category-hero-pride::after, .category-hero-growth::after, .personal-hero::after { /* Añade una nube de color distinta a cada página. */
+  position: absolute; /* Coloca la nebulosa detrás del contenido. */
+  z-index: -1; /* Mantiene la nebulosa detrás del texto. */
+  top: 8%; /* Alinea la luz con el título. */
+  right: 2%; /* Desplaza la luz a un lado de la página. */
+  width: min(42vw, 460px); /* Escala el resplandor de forma responsiva. */
+  aspect-ratio: 1; /* Mantiene la forma circular. */
+  border-radius: 50%; /* Redondea la nebulosa. */
+  content: ""; /* Activa la capa decorativa vacía. */
+  filter: blur(25px); /* Difumina los bordes de la luz. */
+  opacity: 0.55; /* Evita que el color compita con las frases. */
+  pointer-events: none; /* Deja libre la interacción con los controles. */
+} /* Termina la base de nebulosa. */
+.category-hero-love::after { background: radial-gradient(circle, rgba(191, 111, 171, 0.25), transparent 68%); } /* Da un matiz rosado a la página de amor. */
+.category-hero-pride::after { background: radial-gradient(circle, rgba(95, 122, 176, 0.23), transparent 68%); } /* Da un matiz frío a la página de orgullo. */
+.category-hero-growth::after { background: radial-gradient(circle, rgba(115, 180, 153, 0.2), transparent 68%); } /* Da un matiz de aurora a la página de renacer. */
+.personal-hero::after { background: radial-gradient(circle, rgba(169, 154, 232, 0.22), transparent 68%); } /* Da una luz violeta al espacio personal. */
+.topic-list { /* Agrupa los temas breves de cada sección. */
+  display: flex; /* Coloca los temas en una fila. */
+  flex-wrap: wrap; /* Permite que los temas salten de línea en móvil. */
+  gap: 0.55rem; /* Separa cada tema. */
+  margin-top: 1.5rem; /* Separa las etiquetas de la descripción. */
+} /* Termina el grupo de temas. */
+.topic-list span { /* Da forma a cada palabra de tema. */
+  padding: 0.35rem 0.7rem; /* Deja aire alrededor del texto. */
+  border: 1px solid var(--line); /* Enmarca suavemente el tema. */
+  border-radius: 999px; /* Redondea el borde como una órbita. */
+  color: var(--muted); /* Mantiene el tema en segundo plano. */
+  font-size: 0.72rem; /* Usa un tamaño pequeño y legible. */
+} /* Termina la etiqueta de tema. */
+.subsection-title { /* Estiliza el subtítulo del buscador. */
+  color: var(--paper); /* Mantiene contraste en el subtítulo. */
+  font-family: var(--serif); /* Conserva el estilo editorial del sitio. */
+  font-size: 1.9rem; /* Da jerarquía sin competir con el título principal. */
+  font-weight: 500; /* Usa un peso medio y legible. */
+} /* Termina el subtítulo. */
+/* Hace accesibles los campos de búsqueda y del formulario. */
+.search-panel { /* Da un fondo sutil a la zona de filtros. */
+  padding: 1.2rem; /* Separa los controles de sus bordes. */
+  border: 1px solid var(--line); /* Delimita el panel de búsqueda. */
+  border-radius: 1rem; /* Redondea las esquinas del panel. */
+  background: rgba(36, 33, 63, 0.28); /* Suaviza el fondo detrás de los campos. */
+} /* Termina el panel de búsqueda. */
+.form-label, .form-check-label { /* Mantiene las instrucciones de los campos claras. */
+  color: var(--paper); /* Asegura contraste con los fondos oscuros. */
+  font-size: 0.84rem; /* Mantiene las etiquetas compactas y legibles. */
+} /* Termina las etiquetas de formulario. */
+.zenit-input { /* Da aspecto consistente a campos y selectores. */
+  min-height: 48px; /* Deja espacio cómodo para escribir o seleccionar. */
+  border: 1px solid rgba(215, 211, 240, 0.24); /* Define el contorno del campo. */
+  border-radius: 0.7rem; /* Suaviza el control. */
+  background-color: rgba(11, 16, 32, 0.78); /* Mantiene legible el texto que se escribe. */
+  color: var(--paper); /* Usa texto claro dentro del control. */
+} /* Termina el estilo de los controles. */
+.zenit-input::placeholder { color: #aaa9bd; } /* Hace legibles las sugerencias del campo de búsqueda. */
+.zenit-input:focus { /* Resalta un campo activo. */
+  border-color: var(--sky); /* Señala el control que está recibiendo escritura. */
+  background-color: rgba(11, 16, 32, 0.95); /* Conserva contraste al escribir. */
+  color: var(--paper); /* Mantiene claro el texto ingresado. */
+  box-shadow: 0 0 0 0.2rem rgba(125, 174, 219, 0.13); /* Añade un indicador suave de foco. */
+} /* Termina el estado enfocado. */
+.form-select.zenit-input option { /* Mantiene legibles las opciones desplegadas. */
+  background: var(--night); /* Pone un fondo oscuro en las opciones. */
+  color: var(--paper); /* Mantiene claro el texto de cada opción. */
+} /* Termina el estilo de opciones. */
+.form-check-input { /* Hace visible la casilla de confirmación. */
+  border-color: var(--muted); /* Contrasta el borde de la casilla sin marcar. */
+  background-color: var(--night); /* Mantiene la casilla integrada al fondo. */
+} /* Termina la casilla de confirmación. */
+.form-check-input:checked { /* Resalta una casilla aceptada. */
+  border-color: var(--lilac); /* Cambia el borde al violeta de acento. */
+  background-color: var(--lilac); /* Rellena la casilla marcada. */
+} /* Termina el estado marcado. */
+.field-error { /* Señala errores de formulario con un tono cálido. */
+  color: #f0a8b7; /* Usa un rosa claro que contrasta con el fondo. */
+  font-size: 0.78rem; /* Mantiene el aviso breve y legible. */
+} /* Termina el mensaje de error. */
+.form-feedback { /* Reserva sitio para la respuesta del formulario. */
+  min-height: 1.5rem; /* Evita saltos de diseño al mostrar un mensaje. */
+  color: var(--sky); /* Distingue el mensaje de confirmación. */
+  font-size: 0.86rem; /* Mantiene el mensaje claramente legible. */
+} /* Termina el mensaje del formulario. */
+.proposal-form { /* Enmarca los campos de propuesta. */
+  padding: clamp(1.1rem, 4vw, 2rem); /* Ajusta el espacio interior según el ancho de pantalla. */
+  border: 1px solid var(--line); /* Dibuja un borde tenue alrededor del formulario. */
+  border-radius: 1rem; /* Suaviza las esquinas del formulario. */
+  background: rgba(36, 33, 63, 0.28); /* Separa el formulario del fondo sin ocultarlo. */
+} /* Termina el formulario enmarcado. */
+.site-status { /* Reserva un espacio visible para mensajes de acciones. */
+  min-height: 1.6rem; /* Evita que el pie salte al aparecer un aviso. */
+  margin-top: 1.5rem; /* Separa el estado de las acciones anteriores. */
+  color: var(--sky); /* Resalta los mensajes sin usar un tono de error. */
+  font-size: 0.82rem; /* Mantiene los avisos compactos. */
+} /* Termina el mensaje general del sitio. */
+/* Mantiene la información del pie de página separada y legible. */
+.site-footer { /* Da cierre visual a todas las páginas. */
+  margin-top: 3rem; /* Separa el pie del contenido anterior. */
+  padding: 2rem 0; /* Deja espacio alrededor de los enlaces del pie. */
+  border-top: 1px solid rgba(215, 211, 240, 0.1); /* Separa el pie con una línea fina. */
+  background: rgba(11, 16, 32, 0.54); /* Mantiene el pie dentro de la atmósfera nocturna. */
+} /* Termina el pie de página. */
+.footer-brand { font-size: 0.95rem; } /* Reduce la marca en la zona de cierre. */
+.footer-note { /* Mantiene el texto de cierre en segundo plano. */
+  color: var(--muted); /* Usa el tono secundario para el texto de cierre. */
+  font-size: 0.78rem; /* Mantiene pequeño el pie de página. */
+} /* Termina la nota del pie. */
+/* Reduce tamaños y adornos para pantallas pequeñas. */
+@media (max-width: 767.98px) { /* Ajusta la composición para tabletas pequeñas y móviles. */
+  .hero { /* Conserva suficiente altura para la portada móvil. */
+    min-height: 650px; /* Evita que los elementos se amontonen en pantallas pequeñas. */
+    padding-top: 3rem; /* Deja aire bajo la navegación en móvil. */
+  } /* Termina el ajuste móvil de portada. */
+  .min-vh-75 { min-height: 54vh; } /* Evita un hueco excesivo en la fila de portada. */
+  .hero-orbit { /* Mueve la luna detrás del texto en móviles. */
+    top: 31%; /* Baja el adorno para que no compita con la navegación. */
+    right: -30%; /* Recorta parte de la luna fuera del contenido. */
+    width: 78vw; /* Reduce el tamaño del adorno en móvil. */
+    opacity: 0.7; /* Suaviza el brillo detrás del texto. */
+  } /* Termina el ajuste móvil de la órbita. */
+  .display-title { font-size: clamp(3.2rem, 15vw, 5rem); } /* Reduce el título para evitar desbordamientos. */
+  .category-hero .display-title { font-size: clamp(3rem, 13vw, 4.8rem); } /* Reduce los títulos de categorías en móvil. */
+  .section-space { padding-top: 4rem; } /* Conserva separación sin hacer la página demasiado larga. */
+  .category-tile { min-height: 215px; } /* Reduce el alto de los accesos en móvil. */
+  .quote-text { font-size: 1.55rem; } /* Mantiene las citas cómodas en tarjetas estrechas. */
+  .site-footer { margin-top: 2rem; } /* Acerca el pie de página al contenido en móvil. */
+} /* Termina los ajustes para pantallas pequeñas. */
+/* Respeta la preferencia del sistema para reducir movimiento. */
+@media (prefers-reduced-motion: reduce) { /* Desactiva animaciones cuando la persona lo solicita. */
+  html { scroll-behavior: auto; } /* Evita desplazamientos animados. */
+  *, *::before, *::after { /* Reduce transiciones de todo el contenido. */
+    scroll-behavior: auto !important; /* Desactiva el desplazamiento suave. */
+    transition-duration: 0.01ms !important; /* Reduce la duración de las transiciones. */
+    animation-duration: 0.01ms !important; /* Reduce la duración de las animaciones. */
+    animation-iteration-count: 1 !important; /* Evita que una animación se repita indefinidamente. */
+  } /* Termina la reducción de movimiento. */
+} /* Termina la preferencia de movimiento reducido. */

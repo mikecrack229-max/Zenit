@@ -1,0 +1,80 @@
+<!doctype html> <!-- Declara que esta página usa HTML5. -->
+<html lang="es"> <!-- Indica que el contenido está escrito en español. -->
+<head> <!-- Reúne la configuración y los recursos de la página. -->
+  <meta charset="UTF-8"> <!-- Permite mostrar correctamente las tildes y la letra ñ. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Adapta la página al ancho de cada pantalla. -->
+  <meta name="theme-color" content="#0b1020"> <!-- Mantiene el color oscuro en la barra del navegador móvil. -->
+  <meta name="description" content="Busca, guarda y comparte frases para tu universo personal."> <!-- Resume las herramientas de esta página. -->
+  <title>Mi constelación — ZENIT</title> <!-- Define el título que aparece en la pestaña. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Prepara la conexión con Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Acelera la carga de las tipografías. -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Carga las dos tipografías del proyecto. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Incluye la cuadrícula adaptable de Bootstrap 5. -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"> <!-- Incluye iconos para botones y navegación. -->
+  <link href="css/styles.css" rel="stylesheet"> <!-- Aplica los estilos compartidos del sitio. -->
+</head> <!-- Termina la configuración de la página. -->
+<body data-page="constelacion"> <!-- Identifica esta página para los scripts compartidos. -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a> <!-- Permite saltar la navegación usando el teclado. -->
+  <header class="site-header"> <!-- Agrupa el logotipo y la navegación principal. -->
+    <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal"> <!-- Crea un menú adaptable con Bootstrap. -->
+      <a class="navbar-brand brand-mark" href="index.html" aria-label="ZENIT, ir al inicio">ZENIT<span aria-hidden="true">✦</span></a> <!-- Muestra la marca y enlaza a la portada. -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú"><span class="navbar-toggler-icon"></span></button> <!-- Abre o cierra la navegación en móvil. -->
+      <div class="collapse navbar-collapse" id="menuPrincipal"><ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2"> <!-- Agrupa los enlaces del menú adaptable. -->
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li> <!-- Enlaza a la portada. -->
+        <li class="nav-item"><a class="nav-link" href="amor.html">Amor</a></li> <!-- Enlaza a la sección de amor. -->
+        <li class="nav-item"><a class="nav-link" href="orgullo.html">Ego y orgullo</a></li> <!-- Enlaza a la sección de dignidad y confianza. -->
+        <li class="nav-item"><a class="nav-link" href="renacer.html">Renacer</a></li> <!-- Enlaza a la sección de superación. -->
+        <li class="nav-item"><a class="nav-link nav-link-featured active" aria-current="page" href="constelacion.html">Mi constelación <span aria-hidden="true">↗</span></a></li> <!-- Marca el espacio personal como página actual. -->
+      </ul></div> <!-- Termina la lista de enlaces adaptables. -->
+    </nav> <!-- Termina la navegación principal. -->
+  </header> <!-- Termina el encabezado del sitio. -->
+  <main id="contenido"> <!-- Contiene las herramientas personales de la página. -->
+    <section class="category-hero personal-hero container" aria-labelledby="titulo-principal"> <!-- Presenta el buscador y su propósito. -->
+      <p class="eyebrow">Tu mapa, tus palabras</p> <!-- Introduce el espacio personal. -->
+      <h1 class="display-title" id="titulo-principal">Arma una constelación <em>a tu manera.</em></h1> <!-- Destaca la idea de guardar frases propias. -->
+      <p class="hero-description">Busca lo que necesitas, guarda lo que te encuentre y deja aquí una frase tuya para volver a leerla.</p> <!-- Resume las acciones disponibles. -->
+      <button class="btn btn-zenit-quiet mt-2" type="button" data-accion="aleatoria">Sorpréndeme con una frase <span aria-hidden="true">✧</span></button> <!-- Obtiene una frase aleatoria del catálogo. -->
+      <div class="random-result" id="frase-aleatoria" aria-live="polite"></div> <!-- Muestra la frase aleatoria seleccionada. -->
+    </section> <!-- Termina la presentación personal. -->
+    <section class="section-space container" aria-labelledby="titulo-busqueda"> <!-- Incluye búsqueda y filtros para el catálogo. -->
+      <div class="section-heading"><p class="eyebrow">Encuentra tu próxima señal</p><h2 class="section-title" id="titulo-busqueda">Busca entre <em>las estrellas</em></h2></div> <!-- Presenta las herramientas del buscador. -->
+      <div class="row g-3 align-items-end search-panel"> <!-- Organiza los campos con la cuadrícula de Bootstrap. -->
+        <div class="col-md-7"><label class="form-label" for="buscar-frase">Palabra o emoción</label><input class="form-control zenit-input" id="buscar-frase" type="search" placeholder="Ej. calma, volver, límites" autocomplete="off"></div> <!-- Permite buscar por palabras dentro de las frases. -->
+        <div class="col-md-5"><label class="form-label" for="filtro-categoria">Explorar una órbita</label><select class="form-select zenit-input" id="filtro-categoria"><option value="todas">Todas las categorías</option><option value="amor">Amor</option><option value="orgullo">Ego y orgullo</option><option value="renacer">Renacer</option></select></div> <!-- Filtra el catálogo por categoría. -->
+      </div> <!-- Termina el formulario de búsqueda. -->
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-4"><h3 class="subsection-title mb-0">El mapa completo</h3><p class="muted-copy mb-0" id="contador-frases" aria-live="polite"></p></div> <!-- Muestra el nombre y el total de resultados. -->
+      <div class="row g-3 quote-grid mt-1" id="lista-frases" aria-live="polite"></div> <!-- Recibe los resultados de la búsqueda. -->
+    </section> <!-- Termina el buscador y catálogo. -->
+    <section class="section-space container" aria-labelledby="titulo-favoritos"> <!-- Reúne las frases que la persona ha guardado. -->
+      <div class="section-heading"><p class="eyebrow">Para volver cuando quieras</p><h2 class="section-title" id="titulo-favoritos">Tus frases <em>favoritas</em></h2></div> <!-- Presenta la lista guardada. -->
+      <div class="row g-3 quote-grid" id="lista-favoritos" aria-live="polite"></div> <!-- Recibe las tarjetas favoritas guardadas localmente. -->
+    </section> <!-- Termina la sección de favoritos. -->
+    <section class="section-space container" aria-labelledby="titulo-formulario"> <!-- Permite proponer frases propias de forma local. -->
+      <div class="row g-4 align-items-start"> <!-- Divide el texto y el formulario en columnas responsivas. -->
+        <div class="col-lg-5"><p class="eyebrow">Una estrella escrita por ti</p><h2 class="section-title" id="titulo-formulario">Deja una frase <em>en tu universo</em></h2><p class="muted-copy">Tu propuesta se guarda únicamente en el almacenamiento local de este navegador. No se publica en internet ni se envía a un administrador.</p></div> <!-- Explica el uso privado del formulario. -->
+        <div class="col-lg-7"> <!-- Reserva espacio para los campos del formulario. -->
+          <form id="formulario-frase" class="proposal-form" novalidate> <!-- Evita la recarga y permite mostrar validación personalizada. -->
+            <div class="mb-3"><label class="form-label" for="nombre-propuesta">Tu nombre o seudónimo</label><input class="form-control zenit-input" id="nombre-propuesta" name="nombre" type="text" maxlength="30" autocomplete="nickname" required aria-describedby="error-nombre"><small class="field-error" id="error-nombre"></small></div> <!-- Solicita el nombre que acompañará a la frase. -->
+            <div class="mb-3"><label class="form-label" for="categoria-propuesta">Categoría</label><select class="form-select zenit-input" id="categoria-propuesta" name="categoria" required aria-describedby="error-categoria"><option value="">Elige una categoría</option><option value="amor">Amor</option><option value="orgullo">Ego y orgullo</option><option value="renacer">Renacer</option></select><small class="field-error" id="error-categoria"></small></div> <!-- Permite clasificar la frase propuesta. -->
+            <div class="mb-3"><label class="form-label" for="texto-propuesta">Tu frase</label><textarea class="form-control zenit-input" id="texto-propuesta" name="frase" rows="4" minlength="10" maxlength="240" required aria-describedby="error-frase"></textarea><small class="field-error" id="error-frase"></small></div> <!-- Recibe el texto que se guardará sin interpretarlo como HTML. -->
+            <div class="form-check mb-3"><input class="form-check-input" id="aceptar-local" name="aceptar" type="checkbox" required aria-describedby="error-aceptar"><label class="form-check-label" for="aceptar-local">Entiendo que la frase se guarda solo en este navegador.</label><small class="field-error d-block" id="error-aceptar"></small></div> <!-- Confirma que la persona comprende el almacenamiento local. -->
+            <button class="btn btn-zenit" type="submit">Guardar en mi constelación <span aria-hidden="true">→</span></button> <!-- Valida y guarda la propuesta. -->
+            <p class="form-feedback mt-3 mb-0" id="mensaje-formulario" role="status" aria-live="polite"></p> <!-- Comunica validaciones y confirmaciones dentro de la página. -->
+          </form> <!-- Termina el formulario de propuestas. -->
+        </div> <!-- Termina la columna del formulario. -->
+      </div> <!-- Termina la distribución de texto y formulario. -->
+    </section> <!-- Termina el formulario de propuestas. -->
+  </main> <!-- Termina las herramientas personales. -->
+  <p class="site-status container" id="mensaje-global" role="status" aria-live="polite"></p> <!-- Comunica el resultado de acciones generales del sitio. -->
+  <footer class="site-footer"><div class="container d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"> <!-- Ordena los datos de cierre con utilidades de Bootstrap. -->
+    <a class="brand-mark footer-brand" href="index.html">ZENIT<span aria-hidden="true">✦</span></a> <!-- Repite la marca y permite volver al inicio. -->
+    <p class="footer-note mb-0">Un universo dentro de ti. Hecho para acompañar, no para apresurar.</p> <!-- Resume el propósito emocional del proyecto. -->
+    <a class="footer-link" href="constelacion.html">Tu constelación personal <span aria-hidden="true">↗</span></a> <!-- Enlaza al espacio personal. -->
+  </div></footer> <!-- Termina el pie de página. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Activa el menú adaptable de Bootstrap. -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Carga las alertas de confirmación del formulario. -->
+  <script src="js/frases.js"></script> <!-- Carga el catálogo original antes de las funciones. -->
+  <script src="js/app.js"></script> <!-- Activa búsqueda, filtros, favoritos y botones compartidos. -->
+  <script src="js/formulario.js"></script> <!-- Activa la validación del formulario personal. -->
+</body> <!-- Termina el contenido visible de la página. -->
+</html> <!-- Termina el documento HTML. -->
