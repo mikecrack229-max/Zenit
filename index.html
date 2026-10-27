@@ -1,89 +1,138 @@
-<!doctype html> <!-- Declara que esta página usa HTML5. -->
-<html lang="es"> <!-- Indica que el contenido está escrito en español. -->
-<head> <!-- Reúne la configuración y los recursos de la página. -->
-  <meta charset="UTF-8"> <!-- Permite mostrar correctamente las tildes y la letra ñ. -->
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Adapta la página al ancho de cada pantalla. -->
-  <meta name="theme-color" content="#0b1020"> <!-- Mantiene el color oscuro en la barra del navegador móvil. -->
-  <meta name="description" content="ZENIT: frases originales para explorar tu propio universo."> <!-- Resume el propósito de esta página. -->
-  <title>ZENIT — Un universo dentro de ti</title> <!-- Define el título que aparece en la pestaña. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Prepara la conexión con Google Fonts. -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Acelera la carga de las tipografías. -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Carga las dos tipografías del proyecto. -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Incluye la cuadrícula adaptable de Bootstrap 5. -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"> <!-- Incluye iconos para botones y navegación. -->
-  <link href="css/styles.css" rel="stylesheet"> <!-- Aplica los estilos compartidos del sitio. -->
-</head> <!-- Termina la configuración de la página. -->
-<body data-page="inicio"> <!-- Identifica esta página para los scripts compartidos. -->
-  <a class="skip-link" href="#contenido">Saltar al contenido</a> <!-- Permite saltar la navegación usando el teclado. -->
-  <header class="site-header"> <!-- Agrupa el logotipo y la navegación principal. -->
-    <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal"> <!-- Crea un menú adaptable con Bootstrap. -->
-      <a class="navbar-brand brand-mark" href="index.html" aria-label="ZENIT, ir al inicio">ZENIT<span aria-hidden="true">✦</span></a> <!-- Muestra la marca y enlaza a la portada. -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú"> <!-- Abre el menú en pantallas pequeñas. -->
-        <span class="navbar-toggler-icon"></span> <!-- Muestra el icono del menú desplegable. -->
-      </button> <!-- Termina el botón de navegación móvil. -->
-      <div class="collapse navbar-collapse" id="menuPrincipal"> <!-- Guarda los enlaces del menú adaptable. -->
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2"> <!-- Ordena los enlaces en una lista accesible. -->
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li> <!-- Enlaza a la portada. -->
-          <li class="nav-item"><a class="nav-link" href="amor.html">Amor</a></li> <!-- Enlaza a la sección de amor. -->
-          <li class="nav-item"><a class="nav-link" href="orgullo.html">Ego y orgullo</a></li> <!-- Enlaza a la sección de dignidad y confianza. -->
-          <li class="nav-item"><a class="nav-link" href="renacer.html">Renacer</a></li> <!-- Enlaza a la sección de superación. -->
-          <li class="nav-item"><a class="nav-link nav-link-featured" href="constelacion.html">Mi constelación <span aria-hidden="true">↗</span></a></li> <!-- Enlaza al espacio personal. -->
-        </ul> <!-- Termina la lista de navegación. -->
-      </div> <!-- Termina el menú adaptable. -->
-    </nav> <!-- Termina la navegación principal. -->
-  </header> <!-- Termina el encabezado del sitio. -->
-  <main id="contenido"> <!-- Contiene el contenido principal de la portada. -->
-    <section class="hero container position-relative" aria-labelledby="titulo-principal"> <!-- Presenta la identidad y la frase principal. -->
-      <div class="hero-orbit" aria-hidden="true"><span class="hero-moon"></span><span class="orbit-dot"></span></div> <!-- Dibuja una luna y una órbita decorativas con CSS. -->
-      <div class="row align-items-center min-vh-75"> <!-- Alinea el texto y la ilustración en columnas responsivas. -->
-        <div class="col-lg-8 col-xl-7 hero-copy"> <!-- Reserva más espacio para el mensaje principal. -->
-          <p class="eyebrow"><span aria-hidden="true">✦</span> Un lugar para volver a ti</p> <!-- Introduce el tono íntimo del proyecto. -->
-          <h1 class="display-title" id="titulo-principal">Hay universos que <em>solo tú</em> sabes habitar.</h1> <!-- Destaca la frase principal de la portada. -->
-          <p class="hero-description">ZENIT reúne palabras para esos días en los que necesitas mirar hacia adentro, soltar un poco de peso o recordar todo lo que aún puedes ser.</p> <!-- Explica en pocas palabras la idea del sitio. -->
-          <div class="d-flex flex-wrap gap-3 hero-actions"> <!-- Acomoda los botones sin desbordarse en móviles. -->
-            <a class="btn btn-zenit" href="constelacion.html">Explorar frases <span aria-hidden="true">→</span></a> <!-- Lleva al buscador y catálogo completo. -->
-            <button class="btn btn-zenit-quiet" type="button" data-accion="aleatoria">Encontrar una señal <span aria-hidden="true">✧</span></button> <!-- Pide una frase aleatoria al catálogo. -->
-          </div> <!-- Termina el grupo de botones. -->
-          <div class="random-result" id="frase-aleatoria" aria-live="polite"></div> <!-- Muestra la frase aleatoria sin mover al usuario de página. -->
-        </div> <!-- Termina el texto de portada. -->
-        <div class="col-lg-4 col-xl-5 d-none d-lg-flex justify-content-center" aria-hidden="true"> <!-- Añade decoración solo en pantallas grandes. -->
-          <div class="constellation-art"><span class="constellation-star star-one"></span><span class="constellation-star star-two"></span><span class="constellation-star star-three"></span><span class="constellation-line"></span><span class="constellation-line line-two"></span><span class="planet-glow"></span></div> <!-- Forma una constelación abstracta con CSS. -->
-        </div> <!-- Termina la ilustración decorativa. -->
-      </div> <!-- Termina la fila principal de portada. -->
-      <p class="scroll-note"><span aria-hidden="true">↓</span> sigue tu propia órbita</p> <!-- Invita a explorar el contenido más abajo. -->
-    </section> <!-- Termina la portada. -->
-    <section class="section-space container" aria-labelledby="titulo-categorias"> <!-- Presenta las rutas principales del catálogo. -->
-      <div class="section-heading row align-items-end g-3"> <!-- Separa el título de la breve introducción. -->
-        <div class="col-md-8"><p class="eyebrow">Pequeños mapas para grandes días</p><h2 class="section-title" id="titulo-categorias">¿Qué parte de tu universo <em>visitas hoy?</em></h2></div> <!-- Nombra la sección de categorías. -->
-        <div class="col-md-4"><p class="muted-copy mb-0">No tienes que tenerlo todo resuelto. Empieza por la emoción que te trajo hasta aquí.</p></div> <!-- Da contexto amable para elegir una categoría. -->
-      </div> <!-- Termina el encabezado de categorías. -->
-      <div class="row g-3 mt-2"> <!-- Organiza los accesos por columnas de Bootstrap. -->
-        <div class="col-sm-6 col-lg-4"><a class="category-tile tile-love" href="amor.html"><span class="tile-symbol" aria-hidden="true">☾</span><span class="tile-kicker">01 / sentir</span><h3>Amor</h3><span class="tile-link">Entrar en órbita <span aria-hidden="true">↗</span></span></a></div> <!-- Abre las frases sobre amor y despedidas. -->
-        <div class="col-sm-6 col-lg-4"><a class="category-tile tile-pride" href="orgullo.html"><span class="tile-symbol" aria-hidden="true">✧</span><span class="tile-kicker">02 / sostenerte</span><h3>Ego y orgullo</h3><span class="tile-link">Reconocer tu valor <span aria-hidden="true">↗</span></span></a></div> <!-- Abre las frases sobre dignidad y confianza. -->
-        <div class="col-sm-6 col-lg-4"><a class="category-tile tile-growth" href="renacer.html"><span class="tile-symbol" aria-hidden="true">✹</span><span class="tile-kicker">03 / avanzar</span><h3>Renacer</h3><span class="tile-link">Volver a empezar <span aria-hidden="true">↗</span></span></a></div> <!-- Abre las frases sobre disciplina y crecimiento. -->
-      </div> <!-- Termina las tarjetas de categoría. -->
-    </section> <!-- Termina el acceso a categorías. -->
-    <section class="section-space featured-section" aria-labelledby="titulo-destacadas"> <!-- Da protagonismo a algunas frases del catálogo. -->
-      <div class="container"> <!-- Centra el contenido de frases destacadas. -->
-        <div class="section-heading d-flex flex-wrap justify-content-between align-items-end gap-3"> <!-- Alinea el título con el enlace al catálogo. -->
-          <div><p class="eyebrow">Una pausa entre estrellas</p><h2 class="section-title" id="titulo-destacadas">Palabras para <em>quedarte</em></h2></div> <!-- Presenta las frases elegidas. -->
-          <a class="text-link" href="constelacion.html">Ver todas las frases <span aria-hidden="true">→</span></a> <!-- Abre el catálogo completo. -->
-        </div> <!-- Termina el encabezado de frases. -->
-        <div class="row g-3 quote-grid" id="lista-frases" aria-live="polite"></div> <!-- Recibe las frases destacadas desde JavaScript. -->
-      </div> <!-- Termina el contenedor de destacadas. -->
-    </section> <!-- Termina las frases destacadas. -->
-  </main> <!-- Termina el contenido de la portada. -->
-  <p class="site-status container" id="mensaje-global" role="status" aria-live="polite"></p> <!-- Comunica el resultado de acciones del sitio. -->
-  <footer class="site-footer"> <!-- Cierra cada página con información del proyecto. -->
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"> <!-- Acomoda el pie de página según el ancho disponible. -->
-      <a class="brand-mark footer-brand" href="index.html">ZENIT<span aria-hidden="true">✦</span></a> <!-- Repite la marca y permite volver al inicio. -->
-      <p class="footer-note mb-0">Un universo dentro de ti. Hecho para acompañar, no para apresurar.</p> <!-- Resume el propósito emocional del proyecto. -->
-      <a class="footer-link" href="constelacion.html">Tu constelación personal <span aria-hidden="true">↗</span></a> <!-- Invita a guardar frases y escribir una propia. -->
-    </div> <!-- Termina la fila del pie de página. -->
-  </footer> <!-- Termina el pie de página. -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Activa el menú adaptable de Bootstrap. -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Carga las alertas de confirmación del formulario. -->
-  <script src="js/frases.js"></script> <!-- Carga el catálogo original antes de las funciones. -->
-  <script src="js/app.js"></script> <!-- Activa las frases, favoritos y botones compartidos. -->
-</body> <!-- Termina el contenido visible de la página. -->
-</html> <!-- Termina el documento HTML. -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="ZENIT: frases originales para explorar tu propio universo.">
+  <title>ZENIT — Un universo dentro de ti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body data-page="inicio">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- Cabecera compartida con la navegación del sitio. -->
+  <header class="cabecera">
+    <nav class="navbar navbar-expand-lg navbar-dark navegacion container contenedor" aria-label="Navegación principal">
+      <a class="navbar-brand logo" href="index.html" aria-label="ZENIT, ir al inicio">ZENIT<img class="icono icono-logo" src="assets/icons/star.svg" alt="" aria-hidden="true"></a>
+      <button class="navbar-toggler boton-menu" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <img class="icono icono-menu" src="assets/icons/menu.svg" alt="" aria-hidden="true">
+      </button>
+      <div class="collapse navbar-collapse menu" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto lista-menu">
+          <li class="nav-item"><a class="nav-link enlace-menu actual active" aria-current="page" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link enlace-menu" href="amor.html">Amor</a></li>
+          <li class="nav-item"><a class="nav-link enlace-menu" href="orgullo.html">Ego y orgullo</a></li>
+          <li class="nav-item"><a class="nav-link enlace-menu" href="renacer.html">Renacer</a></li>
+          <li class="nav-item"><a class="nav-link enlace-menu destacado" href="constelacion.html">Mi constelación <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Portada y contenido principal de la página de inicio. -->
+  <main id="contenido">
+    <section class="portada container contenedor" aria-labelledby="titulo-principal">
+      <div class="portada-cuadricula row align-items-center g-4">
+        <div class="texto-portada col-12 col-lg-7">
+          <p class="etiqueta"><img class="icono" src="assets/icons/star.svg" alt="" aria-hidden="true"> Un lugar para volver a ti</p>
+          <h1 class="titulo-principal" id="titulo-principal">Hay universos que <em>solo tú</em> sabes habitar.</h1>
+          <p class="descripcion">ZENIT reúne palabras para esos días en los que necesitas mirar hacia adentro, soltar un poco de peso o recordar todo lo que aún puedes ser.</p>
+          <div class="botones-portada">
+            <a class="btn boton-primario" href="constelacion.html">Explorar frases <img class="icono" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true"></a>
+            <button class="btn boton-secundario" type="button" data-accion="aleatoria">Encontrar una señal <img class="icono" src="assets/icons/sparkle.svg" alt="" aria-hidden="true"></button>
+          </div>
+          <div class="frase-aleatoria" id="frase-aleatoria" aria-live="polite"></div>
+        </div>
+        <div class="imagen-portada-columna col-lg-5 d-none d-lg-flex">
+          <figure class="marco-portada">
+            <div class="marco-imagen-portada">
+              <img class="img-fluid imagen-portada" src="assets/galaxia.webp" alt="Nebulosa violeta y azul iluminada por estrellas." width="1440" height="960">
+            </div>
+            <figcaption class="pie-foto">Un pequeño rincón del universo</figcaption>
+          </figure>
+        </div>
+      </div>
+      <p class="nota-desplazamiento"><img class="icono" src="assets/icons/arrow-down.svg" alt="" aria-hidden="true"> sigue tu propia órbita</p>
+    </section>
+    <section class="seccion container contenedor" aria-labelledby="titulo-categorias">
+      <div class="cabecera-seccion cabecera-categorias row g-4">
+        <div class="col-lg-7">
+          <p class="etiqueta">Pequeños mapas para grandes días</p>
+          <h2 class="titulo-seccion" id="titulo-categorias">¿Qué parte de tu universo <em>visitas hoy?</em></h2>
+        </div>
+        <div class="col-lg-5"><p class="texto-apoyo">No tienes que tenerlo todo resuelto. Empieza por la emoción que te trajo hasta aquí.</p></div>
+      </div>
+      <div class="rejilla-temas row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="tarjeta-tema fondo-amor" href="amor.html">
+            <img class="icono-tema" src="assets/icons/moon.svg" alt="" aria-hidden="true">
+            <span class="numero-tema">01 / sentir</span>
+            <h3>Amor</h3>
+            <span class="enlace-tema">Entrar en órbita <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="tarjeta-tema fondo-orgullo" href="orgullo.html">
+            <img class="icono-tema" src="assets/icons/star.svg" alt="" aria-hidden="true">
+            <span class="numero-tema">02 / sostenerte</span>
+            <h3>Ego y orgullo</h3>
+            <span class="enlace-tema">Reconocer tu valor <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="tarjeta-tema fondo-renacer" href="renacer.html">
+            <img class="icono-tema" src="assets/icons/sunrise.svg" alt="" aria-hidden="true">
+            <span class="numero-tema">03 / avanzar</span>
+            <h3>Renacer</h3>
+            <span class="enlace-tema">Volver a empezar <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="seccion container contenedor" aria-labelledby="titulo-momentos">
+      <div class="cabecera-seccion">
+        <p class="etiqueta">También hay espacio para lo que duele</p>
+        <h2 class="titulo-seccion" id="titulo-momentos">Palabras para <em>cada momento</em></h2>
+        <p class="texto-apoyo">Elige lo que se parece a lo que sientes. No tienes que atravesarlo todo de una vez.</p>
+      </div>
+      <div class="rejilla-momentos row g-3">
+        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Tristeza">Tristeza <span>Tomarte el tiempo que necesitas</span></a>
+        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Desamor">Desamor <span>Soltar sin negar lo que sentiste</span></a>
+        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Enojo">Enojo <span>Escuchar lo que tu límite señala</span></a>
+        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Odio%20y%20resentimiento">Odio y resentimiento <span>Encontrar espacio para cuidarte</span></a>
+        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Sentimentalismo">Sentimentalismo <span>Hacer lugar a lo que sientes</span></a>
+        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=P%C3%A9rdida">Pérdida <span>Recordar a tu manera</span></a>
+        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Motivaci%C3%B3n%20despu%C3%A9s%20de%20un%20momento%20dif%C3%ADcil">Volver a empezar <span>Un paso pequeño también cuenta</span></a>
+      </div>
+    </section>
+    <section class="seccion seccion-frases" aria-labelledby="titulo-destacadas">
+      <div class="container contenedor">
+        <div class="cabecera-seccion cabecera-destacadas">
+          <div>
+            <p class="etiqueta">Una pausa entre estrellas</p>
+            <h2 class="titulo-seccion" id="titulo-destacadas">Palabras para <em>quedarte</em></h2>
+          </div>
+          <a class="enlace" href="constelacion.html">Ver todas las frases <img class="icono" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true"></a>
+        </div>
+        <div class="rejilla-frases row g-3" id="lista-frases" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+  <p class="aviso container contenedor" id="mensaje-global" role="status" aria-live="polite"></p>
+  <!-- Pie con enlaces de regreso a las secciones principales. -->
+  <footer class="pie">
+    <div class="container contenedor contenido-pie">
+      <a class="logo logo-pie" href="index.html">ZENIT<img class="icono icono-logo" src="assets/icons/star.svg" alt="" aria-hidden="true"></a>
+      <p class="nota-pie">Un universo dentro de ti. Hecho para acompañar, no para apresurar.</p>
+      <a class="enlace-pie" href="constelacion.html">Tu constelación personal <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></a>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/frases.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
