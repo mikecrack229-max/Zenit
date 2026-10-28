@@ -12,24 +12,56 @@
   function mostrarError(campo, idMensaje, texto) {
     const mensaje = formulario.querySelector(`#${idMensaje}`);
     mensaje.textContent = texto;
-    campo.setAttribute("aria-invalid", texto ? "true" : "false");
+    campo.classList.toggle("is-invalid", Boolean(texto));
+    if (texto) {
+      campo.setAttribute("aria-invalid", "true");
+    } else {
+      campo.removeAttribute("aria-invalid");
+    }
+  }
+
+  function validarCampo(campo) {
+    let textoError = "";
+    if (campo === campoNombre) {
+      const nombre = campoNombre.value.trim();
+      if (!campoNombre.validity.valid || nombre.length < 2 || nombre.length > 30) {
+        textoError = "Escribe un nombre de al menos 2 caracteres.";
+      }
+      mostrarError(campoNombre, "error-nombre", textoError);
+    } else if (campo === campoCategoria) {
+      if (!campoCategoria.validity.valid || !categoriasPermitidas.includes(campoCategoria.value)) {
+        textoError = "Elige una de las categorías disponibles.";
+      }
+      mostrarError(campoCategoria, "error-categoria", textoError);
+    } else if (campo === campoFrase) {
+      const texto = campoFrase.value.trim();
+      if (!campoFrase.validity.valid || texto.length < 10 || texto.length > 240) {
+        textoError = "Escribe una frase de entre 10 y 240 caracteres.";
+      }
+      mostrarError(campoFrase, "error-frase", textoError);
+    } else if (campo === campoAceptacion) {
+      if (!campoAceptacion.validity.valid || !campoAceptacion.checked) {
+        textoError = "Confirma que la frase se guardará solo en este navegador.";
+      }
+      mostrarError(campoAceptacion, "error-aceptar", textoError);
+    }
+    return textoError === "";
   }
 
   // Valida los límites del contenido antes de permitir que se guarde localmente.
   function validarFormulario() {
-    const nombre = campoNombre.value.trim();
-    const categoria = campoCategoria.value;
-    const texto = campoFrase.value.trim();
-    const nombreValido = nombre.length >= 2 && nombre.length <= 30;
-    const categoriaValida = categoriasPermitidas.includes(categoria);
-    const fraseValida = texto.length >= 10 && texto.length <= 240;
-    const aceptacionValida = campoAceptacion.checked;
-    mostrarError(campoNombre, "error-nombre", nombreValido ? "" : "Escribe un nombre de al menos 2 caracteres.");
-    mostrarError(campoCategoria, "error-categoria", categoriaValida ? "" : "Elige una de las categorías disponibles.");
-    mostrarError(campoFrase, "error-frase", fraseValida ? "" : "Escribe una frase de entre 10 y 240 caracteres.");
-    mostrarError(campoAceptacion, "error-aceptar", aceptacionValida ? "" : "Confirma que la frase se guardará solo en este navegador.");
-    return nombreValido && categoriaValida && fraseValida && aceptacionValida;
+    return [campoNombre, campoCategoria, campoFrase, campoAceptacion].map(validarCampo).every(Boolean);
   }
+
+  [campoNombre, campoCategoria, campoFrase, campoAceptacion].forEach((campo) => {
+    const evento = campo === campoCategoria || campo === campoAceptacion ? "change" : "input";
+    campo.addEventListener(evento, () => {
+      validarCampo(campo);
+      if (!formulario.querySelector('[aria-invalid="true"]')) {
+        mensajeFormulario.textContent = "";
+      }
+    });
+  });
 
   formulario.addEventListener("submit", (evento) => {
     evento.preventDefault();
@@ -57,7 +89,8 @@
     }
     window.ZenitApp.agregarPropuesta(nuevaPropuesta);
     formulario.reset();
-    formulario.querySelectorAll('[aria-invalid="true"]').forEach((campo) => campo.removeAttribute("aria-invalid"));
+    formulario.querySelectorAll("[aria-invalid]").forEach((campo) => campo.removeAttribute("aria-invalid"));
+    formulario.querySelectorAll(".is-invalid").forEach((campo) => campo.classList.remove("is-invalid"));
     formulario.querySelectorAll(".error").forEach((mensaje) => { mensaje.textContent = ""; });
     mensajeFormulario.textContent = "Tu frase ya forma parte de este navegador.";
     mostrarConfirmacion();

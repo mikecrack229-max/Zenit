@@ -98,7 +98,7 @@
             <div class="fila-formulario">
               <label class="etiqueta-campo" for="nombre-propuesta">Tu nombre o seudónimo</label>
               <input class="form-control campo" id="nombre-propuesta" name="nombre" type="text" maxlength="30" autocomplete="nickname" required aria-describedby="error-nombre">
-              <small class="error" id="error-nombre"></small>
+              <small class="error" id="error-nombre" aria-live="polite" aria-atomic="true"></small>
             </div>
             <div class="fila-formulario">
               <label class="etiqueta-campo" for="categoria-propuesta">Categoría</label>
@@ -108,17 +108,17 @@
                 <option value="orgullo">Ego y orgullo</option>
                 <option value="renacer">Renacer</option>
               </select>
-              <small class="error" id="error-categoria"></small>
+              <small class="error" id="error-categoria" aria-live="polite" aria-atomic="true"></small>
             </div>
             <div class="fila-formulario">
               <label class="etiqueta-campo" for="texto-propuesta">Tu frase</label>
               <textarea class="form-control campo" id="texto-propuesta" name="frase" rows="4" minlength="10" maxlength="240" required aria-describedby="error-frase"></textarea>
-              <small class="error" id="error-frase"></small>
+              <small class="error" id="error-frase" aria-live="polite" aria-atomic="true"></small>
             </div>
             <div class="fila-formulario form-check casilla">
               <input class="form-check-input" id="aceptar-local" name="aceptar" type="checkbox" required aria-describedby="error-aceptar">
               <label class="form-check-label" for="aceptar-local">Entiendo que la frase se guarda solo en este navegador.</label>
-              <small class="error" id="error-aceptar"></small>
+              <small class="error" id="error-aceptar" aria-live="polite" aria-atomic="true"></small>
             </div>
             <button class="btn boton-primario" type="submit">Guardar en mi constelación <img class="icono" src="assets/icons/arrow-right.svg" alt="" aria-hidden="true"></button>
             <p class="respuesta" id="mensaje-formulario" role="status" aria-live="polite"></p>
