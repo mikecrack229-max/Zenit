@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760" fill="none">
+  <defs>
+    <linearGradient id="cielo" x1="124" y1="75" x2="865" y2="718" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27244D"/>
+      <stop offset=".55" stop-color="#151A35"/>
+      <stop offset="1" stop-color="#0B1020"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="matrix(0 336 -390 0 502 413)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A99AE8" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#A99AE8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="planeta" x1="264" y1="471" x2="738" y2="717" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9E91D9"/>
+      <stop offset=".48" stop-color="#657CAA"/>
+      <stop offset="1" stop-color="#385168"/>
+    </linearGradient>
+    <linearGradient id="anillo" x1="163" y1="607" x2="843" y2="501" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DAEDB" stop-opacity=".08"/>
+      <stop offset=".5" stop-color="#D2C7FF" stop-opacity=".88"/>
+      <stop offset="1" stop-color="#7DAEDB" stop-opacity=".08"/>
+    </linearGradient>
+    <clipPath id="marco">
+      <rect x="25" y="25" width="950" height="710" rx="40"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#marco)">
+    <rect x="25" y="25" width="950" height="710" rx="40" fill="url(#cielo)"/>
+    <rect x="25" y="25" width="950" height="710" fill="url(#halo)"/>
+    <circle cx="181" cy="192" r="2" fill="#F0EDF8"/>
+    <circle cx="300" cy="131" r="3" fill="#D6CDFB"/>
+    <circle cx="418" cy="224" r="2" fill="#F0EDF8"/>
+    <circle cx="527" cy="124" r="2" fill="#7DAEDB"/>
+    <circle cx="724" cy="183" r="3" fill="#F0EDF8"/>
+    <circle cx="837" cy="279" r="2" fill="#D6CDFB"/>
+    <circle cx="129" cy="371" r="3" fill="#7DAEDB"/>
+    <circle cx="866" cy="425" r="3" fill="#F0EDF8"/>
+    <circle cx="276" cy="314" r="2" fill="#F0EDF8"/>
+    <circle cx="666" cy="294" r="2" fill="#7DAEDB"/>
+    <path d="M491 216l8 19 20 8-20 8-8 20-8-20-20-8 20-8 8-19Z" fill="#F0EDF8"/>
+    <path d="M771 359l5 12 13 5-13 5-5 13-5-13-13-5 13-5 5-12Z" fill="#A99AE8"/>
+    <path d="M218 268l4 10 11 4-11 4-4 11-4-11-11-4 11-4 4-10Z" fill="#7DAEDB"/>
+    <circle cx="501" cy="566" r="227" fill="url(#planeta)"/>
+    <path d="M293 521c54-44 133-66 229-66 93 0 171 21 233 62" stroke="#D7D1F0" stroke-opacity=".23" stroke-width="3"/>
+    <path d="M286 578c61-42 139-63 233-63 94 0 174 22 239 65" stroke="#D7D1F0" stroke-opacity=".18" stroke-width="2"/>
+    <path d="M310 641c51-27 121-41 209-41 84 0 155 14 211 41" stroke="#D7D1F0" stroke-opacity=".15" stroke-width="2"/>
+    <ellipse cx="501" cy="574" rx="346" ry="91" transform="rotate(-12 501 574)" stroke="url(#anillo)" stroke-width="13"/>
+    <path d="M25 681c164-42 322-30 475 11 154 42 310 51 475 4v39H25v-54Z" fill="#0B1020" fill-opacity=".72"/>
+    <text x="78" y="114" fill="#F0EDF8" font-family="Georgia,serif" font-size="29" letter-spacing="8">ZENIT</text>
+    <text x="80" y="157" fill="#B7B6C8" font-family="Arial,sans-serif" font-size="14" letter-spacing="3">UN UNIVERSO DENTRO DE TI</text>
+  </g>
+  <rect x="25.75" y="25.75" width="948.5" height="708.5" rx="39.25" stroke="#D7D3F0" stroke-opacity=".24" stroke-width="1.5"/>
+</svg>

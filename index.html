@@ -25,15 +25,16 @@
         <ul class="navbar-nav ms-auto lista-menu">
           <li class="nav-item"><a class="nav-link enlace-menu actual active" aria-current="page" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link enlace-menu" href="amor.html">Amor</a></li>
-          <li class="nav-item"><a class="nav-link enlace-menu" href="orgullo.html">Ego y orgullo</a></li>
-          <li class="nav-item"><a class="nav-link enlace-menu" href="renacer.html">Renacer</a></li>
           <li class="nav-item"><a class="nav-link enlace-menu destacado" href="constelacion.html">Mi constelación <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></a></li>
+          <li class="nav-item"><a class="nav-link enlace-menu" href="acerca.html">Acerca de</a></li>
         </ul>
       </div>
     </nav>
   </header>
   <!-- Portada y contenido principal de la página de inicio. -->
   <main id="contenido">
+
+
     <section class="portada container contenedor" aria-labelledby="titulo-principal">
       <div class="portada-cuadricula row align-items-center g-4">
         <div class="texto-portada col-12 col-lg-7">
@@ -57,6 +58,8 @@
       </div>
       <p class="nota-desplazamiento"><img class="icono" src="assets/icons/arrow-down.svg" alt="" aria-hidden="true"> sigue tu propia órbita</p>
     </section>
+
+
     <section class="seccion container contenedor" aria-labelledby="titulo-categorias">
       <div class="cabecera-seccion cabecera-categorias row g-4">
         <div class="col-lg-7">
@@ -66,7 +69,7 @@
         <div class="col-lg-5"><p class="texto-apoyo">No tienes que tenerlo todo resuelto. Empieza por la emoción que te trajo hasta aquí.</p></div>
       </div>
       <div class="rejilla-temas row g-3">
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="columna-tema">
           <a class="tarjeta-tema fondo-amor" href="amor.html">
             <img class="icono-tema" src="assets/icons/moon.svg" alt="" aria-hidden="true">
             <span class="numero-tema">01 / sentir</span>
@@ -74,7 +77,7 @@
             <span class="enlace-tema">Entrar en órbita <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></span>
           </a>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="columna-tema">
           <a class="tarjeta-tema fondo-orgullo" href="orgullo.html">
             <img class="icono-tema" src="assets/icons/star.svg" alt="" aria-hidden="true">
             <span class="numero-tema">02 / sostenerte</span>
@@ -82,7 +85,7 @@
             <span class="enlace-tema">Reconocer tu valor <img class="icono" src="assets/icons/arrow-up-right.svg" alt="" aria-hidden="true"></span>
           </a>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="columna-tema">
           <a class="tarjeta-tema fondo-renacer" href="renacer.html">
             <img class="icono-tema" src="assets/icons/sunrise.svg" alt="" aria-hidden="true">
             <span class="numero-tema">03 / avanzar</span>
@@ -92,22 +95,40 @@
         </div>
       </div>
     </section>
+
+
     <section class="seccion container contenedor" aria-labelledby="titulo-momentos">
       <div class="cabecera-seccion">
         <p class="etiqueta">También hay espacio para lo que duele</p>
         <h2 class="titulo-seccion" id="titulo-momentos">Palabras para <em>cada momento</em></h2>
         <p class="texto-apoyo">Elige lo que se parece a lo que sientes. No tienes que atravesarlo todo de una vez.</p>
       </div>
-      <div class="rejilla-momentos row g-3">
-        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Tristeza">Tristeza <span>Tomarte el tiempo que necesitas</span></a>
-        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Desamor">Desamor <span>Soltar sin negar lo que sentiste</span></a>
-        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Enojo">Enojo <span>Escuchar lo que tu límite señala</span></a>
-        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Odio%20y%20resentimiento">Odio y resentimiento <span>Encontrar espacio para cuidarte</span></a>
-        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Sentimentalismo">Sentimentalismo <span>Hacer lugar a lo que sientes</span></a>
-        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=P%C3%A9rdida">Pérdida <span>Recordar a tu manera</span></a>
-        <a class="enlace-momento col-12 col-md-6 col-lg-4" href="constelacion.html?buscar=Motivaci%C3%B3n%20despu%C3%A9s%20de%20un%20momento%20dif%C3%ADcil">Volver a empezar <span>Un paso pequeño también cuenta</span></a>
+      <div class="rejilla-momentos row g-4">
+        <div class="columna-momento">
+          <a class="enlace-momento" href="constelacion.html?buscar=Tristeza">Tristeza <span>Tomarte el tiempo que necesitas</span></a>
+        </div>
+        <div class="columna-momento">
+          <a class="enlace-momento" href="constelacion.html?buscar=Desamor">Desamor <span>Soltar sin negar lo que sentiste</span></a>
+        </div>
+        <div class="columna-momento">
+          <a class="enlace-momento" href="constelacion.html?buscar=Enojo">Enojo <span>Escuchar lo que tu límite señala</span></a>
+        </div>
+        <div class="columna-momento">
+          <a class="enlace-momento" href="constelacion.html?buscar=Odio%20y%20resentimiento">Odio y resentimiento <span>Encontrar espacio para cuidarte</span></a>
+        </div>
+        <div class="columna-momento">
+          <a class="enlace-momento" href="constelacion.html?buscar=Sentimentalismo">Sentimentalismo <span>Hacer lugar a lo que sientes</span></a>
+        </div>
+        <div class="columna-momento">
+          <a class="enlace-momento" href="constelacion.html?buscar=P%C3%A9rdida">Pérdida <span>Recordar a tu manera</span></a>
+        </div>
+        <div class="columna-momento">
+          <a class="enlace-momento" href="constelacion.html?buscar=Motivaci%C3%B3n%20despu%C3%A9s%20de%20un%20momento%20dif%C3%ADcil">Volver a empezar <span>Un paso pequeño también cuenta</span></a>
+        </div>
       </div>
     </section>
+
+
     <section class="seccion seccion-frases" aria-labelledby="titulo-destacadas">
       <div class="container contenedor">
         <div class="cabecera-seccion cabecera-destacadas">
@@ -120,6 +141,8 @@
         <div class="rejilla-frases row g-3" id="lista-frases" aria-live="polite"></div>
       </div>
     </section>
+
+
   </main>
   <p class="aviso container contenedor" id="mensaje-global" role="status" aria-live="polite"></p>
   <!-- Pie con enlaces de regreso a las secciones principales. -->
